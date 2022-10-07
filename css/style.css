@@ -1,0 +1,163 @@
+*{
+    margin: auto;
+    padding: 0;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    overflow: hidden;
+}
+
+.jogo{
+    position: relative;
+    width: 100%;
+    height: 95%;
+    background-image: url("../img/background.png");
+    background-size: cover;
+}
+
+.escore{
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
+
+.vidas{
+    display: flex;
+    flex-direction: row-reverse;
+    float: right;
+    margin: 10px 10px 10px 10px;
+}
+
+.vidaImg{
+    background-image: url("../img/icon.png");
+    background-size: cover;
+    margin-left: 10px;
+    opacity: 0.8;
+    width: 40px;
+    height: 40px;
+}
+
+.pontuacao{
+    display: flex;
+}
+
+.pontuacao p{
+    float: right;
+    position: relative;
+    margin-top: 0.5vw;
+    font-size: 2vh;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+.chao{
+    width: 100%;
+    height: 15px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+}
+
+#coletor{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 3.5vh;
+    background-image: url("../img/coletor.png");
+    left: calc(50% - 25px);
+}
+
+.item{
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    background-size: cover;
+}
+
+.painel{
+    position: absolute;
+    background-color: black;
+    display: flex;
+    width: 100vw;
+    height: 5vh;
+    top: 95%;
+}
+
+.jogo button{
+    background-color: transparent;
+}
+
+.startButton{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo{
+    background-image: url("../img/logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    align-self: center;
+    position: absolute;
+    margin-top: 5%;
+    width: 50vw;
+    height: 100vh;
+}
+
+.startDiv{
+    position: relative;
+    width: auto;
+    height: auto;
+    margin: auto;
+    margin-bottom: 40vh;
+    opacity: 0.8;
+    --x: 50%;
+	--y: 50%;
+	padding: 0.4em 2em 0.2em 2em;
+	color: white;
+    cursor: pointer;
+	outline: none;
+	border-radius: 100px;
+	border: 2px solid transparent;
+    background: linear-gradient(#000, #000) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), #00C9A7, #845EC2) border-box;
+    font-size: 3vw;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.telaFinal{
+    color: white;
+    font-size: 2vw;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.endDiv1{
+    float: left;
+}
+
+.endDiv2{
+    float: right;
+}
+
+.painel button{
+    background-color: transparent;
+    background-image: url("../img/seta.png");
+    width: 100px;
+    height: 22px;
+    background-size: cover;
+}
+
+#esquerda{
+    transform: scaleX(-1);
+}
