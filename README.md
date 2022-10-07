@@ -11,6 +11,7 @@ Trata-se de uma adaptação do estilo de jogo de coletar itens caídos do céu e
 <div align="center">
   
   [![Radiohead - Kid A](https://upload.wikimedia.org/wikipedia/en/0/02/Radioheadkida.png)](https://en.wikipedia.org/wiki/Kid_A)
-  [![Stanley Donwood Makes A Run For It](https://s3.amazonaws.com/1xrun-news/wp-content/uploads/2020/02/03214754/donwood-featured-run-interview.jpg)](https://news.1xrun.com/radioheads-stanley-donwood-makes-a-run-for-it/)
+  
+[![Stanley Donwood Makes A Run For It](https://s3.amazonaws.com/1xrun-news/wp-content/uploads/2020/02/03214754/donwood-featured-run-interview.jpg)](https://news.1xrun.com/radioheads-stanley-donwood-makes-a-run-for-it/)
 
 </div>
