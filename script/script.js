@@ -68,6 +68,7 @@ let jogoHeight = parseInt(getComputedStyle(jogo).height);
 
 let vida = 5;
 let pontuacao = 0;
+let coletado = 0;
 let coletaMusica = 0;
 let contador = 0;
 
@@ -134,7 +135,6 @@ function numItens(){
     randomItens = (Math.floor(Math.random()*numItens));
     randomItem = (arrayItens[randomItens]);
     return "url("+randomItem+")";
-    //document.querySelector(".item").style.backgroundImage = "url("+randomItem+")";
 }
 
 //geração de itens
@@ -148,19 +148,24 @@ function gerarItens(){
     item.style.backgroundImage = numItens();
     itens.appendChild(item);
 
-    let coletado = 0;
-
     //coleta (colisão)
     function coleta(){
-        let coletor = document.getElementById("coletor");
-        let item = document.querySelector(".item");
-        if ((parseInt(getComputedStyle(item).top)) >= (parseInt(getComputedStyle(coletor).top) - parseInt(getComputedStyle(item).width)) && parseInt(getComputedStyle(item).left) >= parseInt(getComputedStyle(coletor).left) && parseInt(getComputedStyle(item).left) < (parseInt(getComputedStyle(coletor).left) + parseInt(getComputedStyle(coletor).height))){
+        let coletorTop = parseInt(getComputedStyle(coletor).top);
+        let coletorLeft = parseInt(getComputedStyle(coletor).left);
+        let coletorHeight = parseInt(getComputedStyle(coletor).height);
+        let itemLeft = parseInt(getComputedStyle(item).left);
+        let itemWidth = parseInt(getComputedStyle(item).width);
+        
+        if((itemTop >= coletorTop - itemWidth) &&
+            (itemLeft >= coletorLeft) &&
+            (itemLeft < coletorLeft + coletorHeight)){
             clearInterval(coletaInterval);
             coletado = 1;
             pontuacao++;
             pontos = document.querySelector(".pontos");
             pontos.innerHTML = "Pontos: " +pontuacao;
             console.log("pontuação: " +pontuacao);
+            item.remove();
 
             coletaMusica += 1;
 
@@ -190,32 +195,33 @@ function gerarItens(){
                     coleta4Audio.volume = 0.3;
                     break;
             }
-
+        }
+        
+        else if (itemTop > (coletorTop + (coletorHeight / 2))) {
+            clearInterval(cairItensInterval);
+            clearInterval(coletaInterval);
+            let vidaImg = document.querySelector(".vidaImg");
+            coletado = 0;
             item.remove();
+            if(vidaImg !== null){
+                vida--;
+                vidaImg.remove();
+                console.log("vida: " + vida);
+            }
+            danoAudio.load();
+            danoAudio.play();
+            danoAudio.volume = 0.1;
+        }
+
+        if (vida == 0) {
+            clearInterval(cairItensInterval);
+            clearTimeout(gerarItensTimeout);
+            fim();
         }
     }
 
     //queda dos itens
     function cairItens(){
-        if(itemTop > coletorTop + 100 && coletado == 0){
-            clearInterval(cairItensInterval);
-            let vidaImg = document.querySelector(".vidaImg");
-            vidaImg.remove();
-            vida--;
-            console.log("vida: " +vida);
-            danoAudio.load();
-            danoAudio.play();
-            danoAudio.volume = 0.1;
-            item = document.querySelector(".item");
-            item.remove();
-            
-            if (vida == 0){
-                clearInterval(cairItensInterval);
-                clearTimeout(gerarItensTimeout);
-                fim();
-            }
-            
-        }
         itemTop += 5;
         item.style.top = itemTop;
     }
@@ -225,6 +231,7 @@ function gerarItens(){
     let coletaInterval = setInterval(coleta, 5);
     item.style.top = itemTop;
     item.style.left = itemLeft;
+
 }
 
 //fim
@@ -235,10 +242,10 @@ function fim(){
     fimAudio.load();
     fimAudio.play();
     fimAudio.volume = 0.1;
-    let escore = document.querySelector(".escore");
     let telaFinal = document.querySelector(".telaFinal");
-    escore.style.opacity = "0";
-    telaFinal.style.display = "flex";
+    let escore = document.querySelector(".escore");
     let pontosFinal = document.querySelector(".pontosFinal");
+    telaFinal.style.display = "flex";
+    escore.style.display = "none";
     pontosFinal.innerHTML = "Pontuação final: " +pontuacao;
 }
