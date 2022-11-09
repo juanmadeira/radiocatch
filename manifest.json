@@ -2,6 +2,7 @@
   "short_name": "Radiocatch",
   "lang": "en",
   "start_url": "./index.html",
+  "scope": "./",
   "background_color": "#4a5569",
   "theme_color": "#885417",
   "dir": "ltr",
