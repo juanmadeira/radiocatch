@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="./css/style.css">
 	<link rel="shortcut icon" type="image/x-icon" href="./img/icon.png">
 	<script defer src="./script/script.js"></script>
+	<script>
+		if ('serviceWorker' in navigator) {
+		  navigator.serviceWorker.register('./sw.js')
+			 .then(function () {console.log('service worker registered');})
+			 .catch(function () {console.log('service worker failed'); });
+		}
+	</script>
     <title>Radiocatch!</title>
 </head>
 
