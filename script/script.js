@@ -43,6 +43,8 @@ function iniciar(){
 
 iniciar();
 
+//declaração de variáveis
+//sons
 let bgAudio = new Audio("./audio/idioteque.mp3");
 let danoAudio = new Audio("./audio/dano.mp3");
 let fimAudio = new Audio("./audio/fim.mp3");
@@ -51,18 +53,21 @@ let coleta2Audio = new Audio("./audio/coleta2.mp3");
 let coleta3Audio = new Audio("./audio/coleta3.mp3");
 let coleta4Audio = new Audio("./audio/coleta4.mp3");
 
+//dimensões do personagem
 let coletorTop = parseInt(getComputedStyle(coletor).top);
 let coletorBottom = parseInt(getComputedStyle(coletor).bottom);
 let coletorLeft = parseInt(getComputedStyle(coletor).left);
 let coletorWidth = parseInt(getComputedStyle(coletor).width);
 let coletorHeight = parseInt(getComputedStyle(coletor).height);
 
+//dimensões dos itens
 let item = document.querySelector(".item");
 let itemTop = parseInt(getComputedStyle(item).top);
 let itemLeft = parseInt(getComputedStyle(item).left);
 let itemWidth = parseInt(getComputedStyle(item).width);
 let itemHeight = parseInt(getComputedStyle(item).height);
 
+//dimensões da tela
 let jogoWidth = parseInt(getComputedStyle(jogo).width);
 let jogoHeight = parseInt(getComputedStyle(jogo).height);
 
@@ -72,11 +77,7 @@ let coletado = 0;
 let coletaMusica = 0;
 let contador = 0;
 
-document.addEventListener("keydown", control);
-document.querySelector("#esquerda").addEventListener("click",() => { move('esquerda') });
-document.querySelector("#direita").addEventListener("click",() => { move('direita') });
-
-//movimentação do coletor
+//movimentação do personagem
 function move(direcao){
     if (contador !== 0){
         para();
@@ -90,6 +91,10 @@ function move(direcao){
         contador++;
     }
 }
+
+document.addEventListener("keydown", control);
+document.querySelector("#esquerda").addEventListener("click",() => { move('esquerda') });
+document.querySelector("#direita").addEventListener("click",() => { move('direita') });
 
 function direita(){
     let coletorLeft = parseInt(getComputedStyle(coletor).left);
@@ -248,4 +253,19 @@ function fim(){
     telaFinal.style.display = "flex";
     escore.style.display = "none";
     pontosFinal.innerHTML = "Pontuação final: " +pontuacao;
+
+    //reinício
+    let fimBotoes = document.createElement("div");
+    let fimBotaoSim = document.createElement("button");
+    let fimBotaoNao = document.createElement("button");
+    fimBotaoSim.innerHTML = "Sim";
+    fimBotaoNao.innerHTML = "Não";
+    fimBotaoSim.setAttribute("id", "fimBotaoSim")
+    fimBotaoSim.setAttribute("type", "button");
+    fimBotaoNao.setAttribute("id", "fimBotaoNao");
+    fimBotaoNao.setAttribute("type", "button");
+    fimBotoes.appendChild(fimBotaoSim);
+    fimBotoes.appendChild(fimBotaoNao);
+
+    fimBotaoSim.addEventListener("click", ()=>(iniciar()));
 }
