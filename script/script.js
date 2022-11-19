@@ -4,6 +4,7 @@ function iniciar(){
     let item = document.querySelector(".item");
     let vidas = document.querySelector(".vidas");
     let pontuacao = document.querySelector(".pontuacao");
+    let recordes = document.querySelector(".recordes");
     let chao = document.querySelector(".chao");
     let coletor = document.getElementById("coletor");
     let startButton = document.querySelector(".startButton");
@@ -11,10 +12,12 @@ function iniciar(){
     let painel = document.querySelector(".painel");
     let buttonControleEsquerda = document.getElementById("esquerda");
     let buttonControleDireita = document.getElementById("direita");
+    startButton.style.display = "flex";
     jogo.style.height = "100%";
     item.style.opacity = "0";
     vidas.style.opacity = "0";
     pontuacao.style.opacity = "0";
+    recordes.style.opacity = "0";
     chao.style.visibility = "hidden";
     coletor.style.opacity = "0";
     telaFinal.style.display = "none";
@@ -26,6 +29,7 @@ function iniciar(){
         item.remove();
         vidas.style.opacity = "1";
         pontuacao.style.opacity = "1";
+        recordes.style.opacity = "1";
         chao.style.visibility = "visible";
         coletor.style.opacity = "1";
         buttonControleEsquerda.style.opacity = "1";
@@ -36,14 +40,21 @@ function iniciar(){
         bgAudio.play();
         bgAudio.volume = 0.05;
         bgAudio.loop = true;
+        startButton.style.display = "none";
+
         gerarItens();
-        startButton.remove();
     }
 }
 
 iniciar();
 
 //declaração de variáveis
+let vida = 5;
+let pontuacao = 0;
+let coletado = 0;
+let coletaMusica = 0;
+let contador = 0;
+
 //sons
 let bgAudio = new Audio("./audio/idioteque.mp3");
 let danoAudio = new Audio("./audio/dano.mp3");
@@ -70,12 +81,6 @@ let itemHeight = parseInt(getComputedStyle(item).height);
 //dimensões da tela
 let jogoWidth = parseInt(getComputedStyle(jogo).width);
 let jogoHeight = parseInt(getComputedStyle(jogo).height);
-
-let vida = 5;
-let pontuacao = 0;
-let coletado = 0;
-let coletaMusica = 0;
-let contador = 0;
 
 //movimentação do personagem
 function move(direcao){
@@ -133,6 +138,43 @@ function para(){
     clearInterval(timer);
 }
 
+//armazenamento de dados
+function armazenar(){
+    if(!localStorage.getItem("recorde1")){
+        localStorage.setItem("recorde1", (pontuacao));
+    }
+    else{
+        if(pontuacao > localStorage.getItem("recorde1")){
+            localStorage.setItem("recorde2", localStorage.getItem("recorde2"));	
+            localStorage.setItem("recorde2", localStorage.getItem("recorde1"));	
+            localStorage.setItem("recorde1", (pontuacao));
+            return;
+        }
+    }
+
+    if(!localStorage.getItem("recorde2")){
+        localStorage.setItem("recorde2", (pontuacao));
+    }
+    else{
+        if(pontuacao > localStorage.getItem("recorde2")){
+            localStorage.setItem("recorde3", localStorage.getItem("recorde2"));	
+            localStorage.setItem("recorde2", (pontuacao));
+            return;
+        }
+    }
+
+    if(!localStorage.getItem("recorde3")){
+        localStorage.setItem("recorde3", (pontuacao));
+    }
+    else{
+        if(pontuacao > localStorage.getItem("recorde3")){
+            localStorage.setItem("recorde3", (pontuacao));
+            return;
+        }
+    }
+}
+
+
 //aleatorização de itens
 function numItens(){
     let numItens = 8;
@@ -153,8 +195,27 @@ function gerarItens(){
     item.style.backgroundImage = numItens();
     itens.appendChild(item);
 
+    let cairItensInterval = setInterval(cairItens, 10);
+    let gerarItensTimeout = setTimeout(gerarItens, 1000);
+    let coletaInterval = setInterval(coleta, 5);
+    item.style.top = itemTop;
+    item.style.left = itemLeft;
+
+    //queda dos itens
+    function cairItens(){
+        itemTop += 5;
+        item.style.top = itemTop;
+    }
+
     //coleta (colisão)
     function coleta(){
+        if (vida == 0) {
+            clearInterval(cairItensInterval);
+            clearInterval(coletaInterval);
+            clearTimeout(gerarItensTimeout);
+            document.querySelector(".item").remove();
+            fim();
+        }
         let coletorTop = parseInt(getComputedStyle(coletor).top);
         let coletorLeft = parseInt(getComputedStyle(coletor).left);
         let coletorHeight = parseInt(getComputedStyle(coletor).height);
@@ -169,6 +230,9 @@ function gerarItens(){
             pontuacao++;
             pontos = document.querySelector(".pontos");
             pontos.innerHTML = "Pontos: " +pontuacao;
+            recorde = document.querySelector(".recorde");
+            recorde.innerHTML = "Recorde: " + localStorage.getItem("recorde1");
+            armazenar();
             console.log("pontuação: " +pontuacao);
             item.remove();
 
@@ -217,26 +281,7 @@ function gerarItens(){
             danoAudio.play();
             danoAudio.volume = 0.1;
         }
-
-        if (vida == 0) {
-            clearInterval(cairItensInterval);
-            clearTimeout(gerarItensTimeout);
-            fim();
-        }
     }
-
-    //queda dos itens
-    function cairItens(){
-        itemTop += 5;
-        item.style.top = itemTop;
-    }
-        
-    let cairItensInterval = setInterval(cairItens, 20);
-    let gerarItensTimeout = setTimeout(gerarItens, 4000);
-    let coletaInterval = setInterval(coleta, 5);
-    item.style.top = itemTop;
-    item.style.left = itemLeft;
-
 }
 
 //fim
@@ -255,17 +300,9 @@ function fim(){
     pontosFinal.innerHTML = "Pontuação final: " +pontuacao;
 
     //reinício
-    let fimBotoes = document.createElement("div");
-    let fimBotaoSim = document.createElement("button");
-    let fimBotaoNao = document.createElement("button");
-    fimBotaoSim.innerHTML = "Sim";
-    fimBotaoNao.innerHTML = "Não";
-    fimBotaoSim.setAttribute("id", "fimBotaoSim")
-    fimBotaoSim.setAttribute("type", "button");
-    fimBotaoNao.setAttribute("id", "fimBotaoNao");
-    fimBotaoNao.setAttribute("type", "button");
-    fimBotoes.appendChild(fimBotaoSim);
-    fimBotoes.appendChild(fimBotaoNao);
-
-    fimBotaoSim.addEventListener("click", ()=>(iniciar()));
+    let fimBotao = document.createElement("button");
+    fimBotao.setAttribute("class", "fimBotao")
+    fimBotao.innerHTML = "Recomeçar";
+    telaFinal.appendChild(fimBotao);
+    document.querySelector(".fimBotao").addEventListener("click", () => (window.location.reload()));
 }
