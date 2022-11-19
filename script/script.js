@@ -195,8 +195,8 @@ function gerarItens(){
     item.style.backgroundImage = numItens();
     itens.appendChild(item);
 
-    let cairItensInterval = setInterval(cairItens, 10);
-    let gerarItensTimeout = setTimeout(gerarItens, 1000);
+    let cairItensInterval = setInterval(cairItens, 20);
+    let gerarItensTimeout = setTimeout(gerarItens, 3500);
     let coletaInterval = setInterval(coleta, 5);
     item.style.top = itemTop;
     item.style.left = itemLeft;
