@@ -1,5 +1,5 @@
 # radiocatch
-[![hirooh - radiocatch](https://img.shields.io/static/v1?label=hirooh&message=radiocatch&color=blue&logo=github)](https://github.com/hirooh/trenchmusic "Go to GitHub repo")
+[![hirooh - radiocatch](https://img.shields.io/static/v1?label=hirooh&message=radiocatch&color=blue&logo=github)](https://github.com/hirooh/radiocatch "Go to GitHub repo")
 [![stars - radiocatch](https://img.shields.io/github/stars/hirooh/radiocatch?style=social)](https://github.com/hirooh/radiocatch)
 [![forks - radiocatch](https://img.shields.io/github/forks/hirooh/radiocatch?style=social)](https://github.com/hirooh/radiocatch)
 [![issues - radiocatch](https://img.shields.io/github/issues/hirooh/radiocatch)](https://github.com/hirooh/radiocatch/issues)
