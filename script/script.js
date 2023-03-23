@@ -147,7 +147,7 @@ function armazenar(){
         if(pontuacao > localStorage.getItem("recorde1")){
             localStorage.setItem("recorde2", localStorage.getItem("recorde2"));	
             localStorage.setItem("recorde2", localStorage.getItem("recorde1"));	
-            localStorage.setItem("recorde1", (pontuacao));
+            localStorage.setItem("recorde1", (pontuacao + 1));
             return;
         }
     }
@@ -158,7 +158,7 @@ function armazenar(){
     else{
         if(pontuacao > localStorage.getItem("recorde2")){
             localStorage.setItem("recorde3", localStorage.getItem("recorde2"));	
-            localStorage.setItem("recorde2", (pontuacao));
+            localStorage.setItem("recorde2", (pontuacao + 1));
             return;
         }
     }
@@ -168,7 +168,7 @@ function armazenar(){
     }
     else{
         if(pontuacao > localStorage.getItem("recorde3")){
-            localStorage.setItem("recorde3", (pontuacao));
+            localStorage.setItem("recorde3", (pontuacao + 1));
             return;
         }
     }
