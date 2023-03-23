@@ -4,7 +4,7 @@ function iniciar(){
     let item = document.querySelector(".item");
     let vidas = document.querySelector(".vidas");
     let pontuacao = document.querySelector(".pontuacao");
-    let recordes = document.querySelector(".recordes");
+    //let recordes = document.querySelector(".recordes");
     let chao = document.querySelector(".chao");
     let coletor = document.getElementById("coletor");
     let startButton = document.querySelector(".startButton");
@@ -17,7 +17,7 @@ function iniciar(){
     item.style.opacity = "0";
     vidas.style.opacity = "0";
     pontuacao.style.opacity = "0";
-    recordes.style.opacity = "0";
+    //recordes.style.opacity = "0";
     chao.style.visibility = "hidden";
     coletor.style.opacity = "0";
     telaFinal.style.display = "none";
@@ -29,7 +29,7 @@ function iniciar(){
         item.remove();
         vidas.style.opacity = "1";
         pontuacao.style.opacity = "1";
-        recordes.style.opacity = "1";
+        //recordes.style.opacity = "1";
         chao.style.visibility = "visible";
         coletor.style.opacity = "1";
         buttonControleEsquerda.style.opacity = "1";
@@ -229,8 +229,8 @@ function gerarItens(){
             pontuacao++;
             pontos = document.querySelector(".pontos");
             pontos.innerHTML = "Pontos: " +pontuacao;
-            recorde = document.querySelector(".recorde");
-            recorde.innerHTML = "Recorde: " + localStorage.getItem("recorde1");
+            //recorde = document.querySelector(".recorde");
+            //recorde.innerHTML = "Recorde: " + localStorage.getItem("recorde1");
             armazenar();
             console.log("pontuação: " +pontuacao);
             item.remove();
