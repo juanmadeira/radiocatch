@@ -141,7 +141,7 @@ function para(){
 //armazenamento de dados
 function armazenar(){
     if(!localStorage.getItem("recorde1")){
-        localStorage.setItem("recorde1", (pontuacao));
+        localStorage.setItem("recorde1", (pontuacao.Number() + 1));
     }
     else{
         if(pontuacao > localStorage.getItem("recorde1")){
@@ -153,7 +153,7 @@ function armazenar(){
     }
 
     if(!localStorage.getItem("recorde2")){
-        localStorage.setItem("recorde2", (pontuacao));
+        localStorage.setItem("recorde2", (pontuacao.Number() + 1));
     }
     else{
         if(pontuacao > localStorage.getItem("recorde2")){
@@ -164,7 +164,7 @@ function armazenar(){
     }
 
     if(!localStorage.getItem("recorde3")){
-        localStorage.setItem("recorde3", (pontuacao));
+        localStorage.setItem("recorde3", (pontuacao.Number() + 1));
     }
     else{
         if(pontuacao > localStorage.getItem("recorde3")){
