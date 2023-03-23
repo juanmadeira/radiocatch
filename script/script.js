@@ -138,7 +138,7 @@ function para(){
     clearInterval(timer);
 }
 
-//armazenamento de dados
+/* armazenamento de dados
 function armazenar(){
     if(!localStorage.getItem("recorde1")){
         localStorage.setItem("recorde1", (pontuacao + 1));
@@ -172,8 +172,7 @@ function armazenar(){
             return;
         }
     }
-}
-
+} */
 
 //aleatorização de itens
 function numItens(){
