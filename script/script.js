@@ -54,7 +54,6 @@ let pontuacao = 0;
 let coletado = 0;
 let coletaMusica = 0;
 let contador = 0;
-let recorde1 = 0;
 
 //sons
 let bgAudio = new Audio("./audio/idioteque.mp3");
@@ -142,7 +141,7 @@ function para(){
 //armazenamento de dados
 function armazenar(){
     if(!localStorage.getItem("recorde1")){
-        localStorage.setItem("recorde1", (pontuacao));
+        localStorage.setItem("recorde1", (pontuacao + 1));
     }
     else{
         if(pontuacao > localStorage.getItem("recorde1")){
