@@ -141,7 +141,7 @@ function para(){
 //armazenamento de dados
 function armazenar(){
     if(!localStorage.getItem("recorde1")){
-        localStorage.setItem("recorde1", (pontuacao + 1));
+        localStorage.setItem("recorde1", (pontuacao));
     }
     else{
         if(pontuacao > localStorage.getItem("recorde1")){
