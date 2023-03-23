@@ -1,8 +1,8 @@
 # radiocatch
-[![hirooh - radiocatch](https://img.shields.io/static/v1?label=hirooh&message=radiocatch&color=blue&logo=github)](https://github.com/hirooh/radiocatch "Go to GitHub repo")
-[![stars - radiocatch](https://img.shields.io/github/stars/hirooh/radiocatch?style=social)](https://github.com/hirooh/radiocatch)
-[![forks - radiocatch](https://img.shields.io/github/forks/hirooh/radiocatch?style=social)](https://github.com/hirooh/radiocatch)
-[![issues - radiocatch](https://img.shields.io/github/issues/hirooh/radiocatch)](https://github.com/hirooh/radiocatch/issues)
+[![juanmadeira - radiocatch](https://img.shields.io/static/v1?label=juanmadeira&message=radiocatch&color=blue&logo=github)](https://github.com/juanmadeira/radiocatch "Go to GitHub repo")
+[![stars - radiocatch](https://img.shields.io/github/stars/juanmadeira/radiocatch?style=social)](https://github.com/juanmadeira/radiocatch)
+[![forks - radiocatch](https://img.shields.io/github/forks/juanmadeira/radiocatch?style=social)](https://github.com/juanmadeira/radiocatch)
+[![issues - radiocatch](https://img.shields.io/github/issues/juanmadeira/radiocatch)](https://github.com/juanmadeira/radiocatch/issues)
 
 Jogo desenvolvido para a disciplina de Desenvolvimento Baseado em Objeto.
 
