@@ -54,6 +54,7 @@ let pontuacao = 0;
 let coletado = 0;
 let coletaMusica = 0;
 let contador = 0;
+let recorde1 = 0;
 
 //sons
 let bgAudio = new Audio("./audio/idioteque.mp3");
