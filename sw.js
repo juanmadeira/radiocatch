@@ -1,4 +1,4 @@
-//consts utilizadas
+/* consts utilizadas */
 const CACHE_NAME = 'my-site-cache-v1';
 const urlsToCache = [
   './index.html',
@@ -6,7 +6,7 @@ const urlsToCache = [
   './manifest.json'
 ];
 
-//ao instalar
+/* ao instalar */
 self.addEventListener('install', event =>
   event.waitUntil(cacheResources())
 )
@@ -16,8 +16,7 @@ async function cacheResources() {
   return cache.addAll(urlsToCache)
 }
 
-//ao fazer uma requisição (fetch
-
+/* ao fazer uma requisição (fetch) */
 self.addEventListener('fetch', event =>
   event.respondWith(cachedResource(event.request))
 )
