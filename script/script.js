@@ -1,4 +1,4 @@
-//iniciar
+/* iniciar */
 function iniciar() {
     let jogo = document.querySelector(".jogo");
     let item = document.querySelector(".item");
@@ -48,14 +48,14 @@ function iniciar() {
 
 iniciar();
 
-//declaração de variáveis
+/* declaração de variáveis */
 let vida = 5;
 let pontuacao = 0;
 let coletado = 0;
 let coletaMusica = 0;
 let contador = 0;
 
-//sons
+/* sons */
 let bgAudio = new Audio("./audio/idioteque.mp3");
 let danoAudio = new Audio("./audio/dano.mp3");
 let fimAudio = new Audio("./audio/fim.mp3");
@@ -64,25 +64,25 @@ let coleta2Audio = new Audio("./audio/coleta2.mp3");
 let coleta3Audio = new Audio("./audio/coleta3.mp3");
 let coleta4Audio = new Audio("./audio/coleta4.mp3");
 
-//dimensões do personagem
+/* dimensões do personagem */
 let coletorTop = parseInt(getComputedStyle(coletor).top);
 let coletorBottom = parseInt(getComputedStyle(coletor).bottom);
 let coletorLeft = parseInt(getComputedStyle(coletor).left);
 let coletorWidth = parseInt(getComputedStyle(coletor).width);
 let coletorHeight = parseInt(getComputedStyle(coletor).height);
 
-//dimensões dos itens
+/* dimensões dos itens */
 let item = document.querySelector(".item");
 let itemTop = parseInt(getComputedStyle(item).top);
 let itemLeft = parseInt(getComputedStyle(item).left);
 let itemWidth = parseInt(getComputedStyle(item).width);
 let itemHeight = parseInt(getComputedStyle(item).height);
 
-//dimensões da tela
+/* dimensões da tela */
 let jogoWidth = parseInt(getComputedStyle(jogo).width);
 let jogoHeight = parseInt(getComputedStyle(jogo).height);
 
-//movimentação do personagem
+/* movimentação do personagem */
 function move(direcao) {
     if (contador !== 0) {
         para();
@@ -172,9 +172,9 @@ function armazenar() {
             return;
         }
     }
-}*/
+} */
 
-//aleatorização de itens
+/* aleatorização de itens */
 function numItens() {
     let numItens = 8;
     arrayItens = new Array("./img/item1.png", "./img/item2.png", "./img/item3.png", "./img/item4.png", "./img/item5.png", "./img/item6.png", "./img/item7.png", "./img/item8.png");
@@ -183,7 +183,7 @@ function numItens() {
     return "url("+randomItem+")";
 }
 
-//geração de itens
+/* geração de itens */
 function gerarItens() {
     let itemTop = -40;
     let jogoWidth = parseInt(getComputedStyle(jogo).width);
@@ -200,13 +200,13 @@ function gerarItens() {
     item.style.top = itemTop;
     item.style.left = itemLeft;
 
-    //queda dos itens
+    /* queda dos itens */
     function cairItens() {
         itemTop += 5;
         item.style.top = itemTop;
     }
 
-    //coleta (colisão)
+    /* coleta (colisão) */
     function coleta() {
         if (vida == 0) {
             clearInterval(cairItensInterval);
@@ -283,7 +283,7 @@ function gerarItens() {
     }
 }
 
-//fim
+/* fim */
 function fim() {
     bgAudio.loop = false;
     bgAudio.pause();
