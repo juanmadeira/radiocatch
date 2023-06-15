@@ -1,5 +1,5 @@
 //iniciar
-function iniciar(){
+function iniciar() {
     let jogo = document.querySelector(".jogo");
     let item = document.querySelector(".item");
     let vidas = document.querySelector(".vidas");
@@ -25,7 +25,7 @@ function iniciar(){
     buttonControleDireita.style.opacity = "0";
     painel.style.visibility = "hidden";
     
-    document.querySelector(".startButton").onclick = function(){
+    document.querySelector(".startButton").onclick = function() {
         item.remove();
         vidas.style.opacity = "1";
         pontuacao.style.opacity = "1";
@@ -83,15 +83,15 @@ let jogoWidth = parseInt(getComputedStyle(jogo).width);
 let jogoHeight = parseInt(getComputedStyle(jogo).height);
 
 //movimentação do personagem
-function move(direcao){
-    if (contador !== 0){
+function move(direcao) {
+    if (contador !== 0) {
         para();
     }
-    if (direcao == "esquerda"){
+    if (direcao == "esquerda") {
         timer = setInterval("esquerda()", 15);
         contador++;
     }
-    if (direcao == "direita"){
+    if (direcao == "direita") {
         timer = setInterval("direita()", 15);
         contador++;
     }
@@ -101,7 +101,7 @@ document.addEventListener("keydown", control);
 document.querySelector("#esquerda").addEventListener("click",() => { move('esquerda') });
 document.querySelector("#direita").addEventListener("click",() => { move('direita') });
 
-function direita(){
+function direita() {
     let coletorLeft = parseInt(getComputedStyle(coletor).left);
     let jogoWidth = parseInt(getComputedStyle(jogo).width);
     let coletorWidth = parseInt(getComputedStyle(coletor).width);
@@ -114,37 +114,37 @@ function direita(){
     }
 }
 
-function esquerda(){
+function esquerda() {
     let coletorLeft = parseInt(getComputedStyle(coletor).left);
     
     coletor.style.transform = 'scaleX(1)';
     coletor.style.left = coletorLeft - 6;
-    if (coletorLeft <= 0){
+    if (coletorLeft <= 0) {
         clearInterval(timer);
         timer = setInterval ("direita()", 15);
     }
 }
 
-function control(e){
-    if(e.key == "ArrowLeft"){
+function control(e) {
+    if (e.key == "ArrowLeft") {
         move("esquerda");
     }
-    if(e.key == "ArrowRight"){
+    if (e.key == "ArrowRight") {
         move("direita");
     }
 }
 
-function para(){
+function para() {
     clearInterval(timer);
 }
 
 /* armazenamento de dados
-function armazenar(){
-    if(!localStorage.getItem("recorde1")){
+function armazenar() {
+    if (!localStorage.getItem("recorde1")) {
         localStorage.setItem("recorde1", (pontuacao + 1));
     }
-    else{
-        if(pontuacao > localStorage.getItem("recorde1")){
+    else {
+        if (pontuacao > localStorage.getItem("recorde1")) {
             localStorage.setItem("recorde2", localStorage.getItem("recorde2"));	
             localStorage.setItem("recorde2", localStorage.getItem("recorde1"));	
             localStorage.setItem("recorde1", (pontuacao + 1));
@@ -152,30 +152,30 @@ function armazenar(){
         }
     }
 
-    if(!localStorage.getItem("recorde2")){
+    if (!localStorage.getItem("recorde2")) {
         localStorage.setItem("recorde2", (pontuacao + 1));
     }
-    else{
-        if(pontuacao > localStorage.getItem("recorde2")){
+    else {
+        if (pontuacao > localStorage.getItem("recorde2")) {
             localStorage.setItem("recorde3", localStorage.getItem("recorde2"));	
             localStorage.setItem("recorde2", (pontuacao + 1));
             return;
         }
     }
 
-    if(!localStorage.getItem("recorde3")){
+    if (!localStorage.getItem("recorde3")) {
         localStorage.setItem("recorde3", (pontuacao + 1));
     }
-    else{
-        if(pontuacao > localStorage.getItem("recorde3")){
+    else {
+        if (pontuacao > localStorage.getItem("recorde3")) {
             localStorage.setItem("recorde3", (pontuacao + 1));
             return;
         }
     }
-} */
+}*/
 
 //aleatorização de itens
-function numItens(){
+function numItens() {
     let numItens = 8;
     arrayItens = new Array("./img/item1.png", "./img/item2.png", "./img/item3.png", "./img/item4.png", "./img/item5.png", "./img/item6.png", "./img/item7.png", "./img/item8.png");
     randomItens = (Math.floor(Math.random()*numItens));
@@ -184,7 +184,7 @@ function numItens(){
 }
 
 //geração de itens
-function gerarItens(){
+function gerarItens() {
     let itemTop = -40;
     let jogoWidth = parseInt(getComputedStyle(jogo).width);
     let itemLeft = Math.floor(Math.random() * (jogoWidth - 50));
@@ -201,13 +201,13 @@ function gerarItens(){
     item.style.left = itemLeft;
 
     //queda dos itens
-    function cairItens(){
+    function cairItens() {
         itemTop += 5;
         item.style.top = itemTop;
     }
 
     //coleta (colisão)
-    function coleta(){
+    function coleta() {
         if (vida == 0) {
             clearInterval(cairItensInterval);
             clearInterval(coletaInterval);
@@ -221,9 +221,9 @@ function gerarItens(){
         let itemLeft = parseInt(getComputedStyle(item).left);
         let itemWidth = parseInt(getComputedStyle(item).width);
         
-        if((itemTop >= coletorTop - itemWidth) &&
+        if ((itemTop >= coletorTop - itemWidth) &&
             (itemLeft >= coletorLeft) &&
-            (itemLeft < coletorLeft + coletorHeight)){
+            (itemLeft < coletorLeft + coletorHeight)) {
             clearInterval(coletaInterval);
             coletado = 1;
             pontuacao++;
@@ -231,17 +231,17 @@ function gerarItens(){
             pontos.innerHTML = "Pontos: " +pontuacao;
             //recorde = document.querySelector(".recorde");
             //recorde.innerHTML = "Recorde: " + localStorage.getItem("recorde1");
-            armazenar();
+            //armazenar();
             console.log("pontuação: " +pontuacao);
             item.remove();
 
             coletaMusica += 1;
 
-            if(coletaMusica == 5){
+            if (coletaMusica == 5) {
                 coletaMusica = 1;
             }
 
-            switch(coletaMusica){
+            switch (coletaMusica) {
                 case 1:
                     coleta1Audio.load();
                     coleta1Audio.play();
@@ -271,7 +271,7 @@ function gerarItens(){
             let vidaImg = document.querySelector(".vidaImg");
             coletado = 0;
             item.remove();
-            if(vidaImg !== null){
+            if(vidaImg !== null) {
                 vida--;
                 vidaImg.remove();
                 console.log("vida: " + vida);
@@ -284,7 +284,7 @@ function gerarItens(){
 }
 
 //fim
-function fim(){
+function fim() {
     bgAudio.loop = false;
     bgAudio.pause();
     bgAudio.currentTime = 0;
