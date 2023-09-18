@@ -1,3 +1,10 @@
+/* serviceWorker */
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./script/sw.js')
+    .then(function () {console.log('service worker registered');})
+    .catch(function () {console.log('service worker failed'); });
+}
+
 /* iniciar */
 function iniciar() {
     let jogo = document.querySelector(".jogo");
@@ -56,13 +63,13 @@ let coletaMusica = 0;
 let contador = 0;
 
 /* sons */
-let bgAudio = new Audio("./audio/idioteque.mp3");
-let danoAudio = new Audio("./audio/dano.mp3");
-let fimAudio = new Audio("./audio/fim.mp3");
-let coleta1Audio = new Audio("./audio/coleta1.mp3");
-let coleta2Audio = new Audio("./audio/coleta2.mp3");
-let coleta3Audio = new Audio("./audio/coleta3.mp3");
-let coleta4Audio = new Audio("./audio/coleta4.mp3");
+let bgAudio = new Audio("./sound/idioteque.mp3");
+let danoAudio = new Audio("./sound/dano.mp3");
+let fimAudio = new Audio("./sound/fim.mp3");
+let coleta1Audio = new Audio("./sound/coleta1.mp3");
+let coleta2Audio = new Audio("./sound/coleta2.mp3");
+let coleta3Audio = new Audio("./sound/coleta3.mp3");
+let coleta4Audio = new Audio("./sound/coleta4.mp3");
 
 /* dimensões do personagem */
 let coletorTop = parseInt(getComputedStyle(coletor).top);
