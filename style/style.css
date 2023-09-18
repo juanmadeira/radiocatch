@@ -1,0 +1,192 @@
+* {
+    margin: auto;
+    padding: 0;
+    font-family: "VT-100", fixedsys, System, monospace;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    overflow: hidden;
+}
+
+.jogo {
+    position: relative;
+    width: 100%;
+    height: 95%;
+    background-image: url("../img/background.png");
+    background-size: cover;
+}
+
+.escore {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    float: right;
+}
+
+.vidas {
+    display: flex;
+    flex-direction: row-reverse;
+    order: 0;
+    float: right;
+    margin: 10px 10px 10px 10px;
+}
+
+.vidaImg {
+    background-image: url("../img/icon.png");
+    background-size: cover;
+    margin-left: 10px;
+    opacity: 0.8;
+    width: 40px;
+    height: 40px;
+}
+
+.pontuacao {
+    display: flex;
+    order: 1;
+    margin: 10px 10px 10px 10px;
+}
+
+.pontuacao p {
+    float: right;
+    position: relative;
+    font-size: 1.15rem;
+    color: white;
+}
+
+.recordes {
+    display: flex;
+    order: 2;
+    margin: 10px 10px 10px 10px;
+}
+
+.recordes p {
+    float: right;
+    position: relative;
+    font-size: 1rem;
+    color: white;
+}
+
+.chao {
+    width: 100%;
+    height: 15px;
+    background-color: black;
+    position: absolute;
+    bottom: 3.5vh;
+}
+
+#coletor {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 3.5vh;
+    background-image: url("../img/coletor.png");
+    left: calc(50% - 25px);
+}
+
+.item {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    background-size: cover;
+}
+
+.painel {
+    position: absolute;
+    background-color: black;
+    display: flex;
+    width: 100vw;
+    height: 3.5vh;
+    bottom: 0;
+}
+
+.jogo button {
+    background-color: transparent;
+}
+
+.startButton {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    background-image: url("../img/logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    align-self: center;
+    position: absolute;
+    margin-top: 5%;
+    width: 50vw;
+    height: 100vh;
+}
+
+.startDiv {
+    position: relative;
+    width: auto;
+    height: auto;
+    margin: auto;
+    margin-bottom: 40vh;
+    opacity: 0.8;
+    --x: 50%;
+	--y: 50%;
+	padding: 0.4em 2em 0.2em 2em;
+	color: white;
+    cursor: pointer;
+	outline: none;
+	border-radius: 100px;
+	border: 2px solid transparent;
+    background: linear-gradient(#000, #000) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), #00C9A7, #845EC2) border-box;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.telaFinal {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    margin: 10vh auto 10vh auto;
+    row-gap: 5vh;
+    flex-wrap: wrap;
+}
+
+.fimBotao {
+    order: 1;
+    position: relative;
+    width: auto;
+    height: auto;
+    margin: auto;
+    opacity: 0.8;
+    --x: 50%;
+	--y: 50%;
+	padding: 0.4em 2em 0.2em 2em;
+	color: white;
+    cursor: pointer;
+	outline: none;
+	border-radius: 100px;
+	border: 2px solid transparent;
+    background: linear-gradient(#000, #000) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), #00C9A7, #845EC2) border-box;
+    font-size: 1.5rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.painel button {
+    background-color: transparent;
+    background-image: url("../img/seta.png");
+    width: 100px;
+    height: 22px;
+    background-size: cover;
+}
+
+#esquerda {
+    transform: scaleX(-1);
+}
